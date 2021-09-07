@@ -1,32 +1,51 @@
 import React from 'react'
+
 const App = () => {
-  const name = "peter"
-  const age = 15
-  return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name = "Mahmoud" age = {20} />
-      <Hello name = "Elsharawy" age = {age}/>
-      <Hello name = {name} age = {age}/>
-      <Footer />
-    </>
-  )
-}
-const Hello = (props) => {
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
+
   return (
     <div>
-      <p>
-        Hello {props.name}, you are {props.age} years old
-      </p>
+      <Header course = {course}/>
+      <Content name = {part1} exercisesNumber = {exercises1}/>
+      <Content name = {part2} exercisesNumber = {exercises2}/>
+      <Content name = {part3} exercisesNumber = {exercises3}/>
+      <Total exercisesNumber1 = {exercises1} exercisesNumber2 = {exercises2} exercisesNumber3 = {exercises3} />
+     
+ 
+      
     </div>
   )
 }
-const Footer = () => {
-  return (
-    <div>
-      greeting app created by <a href="https://github.com/mluukkai">mluukkai</a>
-    </div>
+const Header = (props) => {
+  return(
+    <h1>{props.course}</h1>
+
   )
+  
+}
+const Content = (props) => {
+  return (
+    <p>
+    {props.name} {props.exercisesNumber}
+  </p>
+
+  )
+
+}
+const Total = (props) => {
+  return (
+    <p>
+    Number of exercises {props.exercisesNumber1 + props.exercisesNumber2 + props.exercisesNumber3}
+    </p>
+  )
+
+
 }
 
 export default App
